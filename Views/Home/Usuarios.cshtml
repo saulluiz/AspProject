@@ -1,18 +1,13 @@
 @model IQueryable<AspProject.Models.Usuario>
     @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+  Layout="_Layout";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-</head>
-<body>
 
    <h1>Usuarios</h1>
      <a  href="/Home/Cadastrar"><button> Novo usuario</button></a>
-         <a href="/Home/Index">  <Button style=" background-color: rgb(236, 22, 22); ;">Voltar</Button></a>
+         <a href="/Home/Index">  <Button class="botaoVermeho">Voltar</Button></a>
          <table>
            <thead>
             <th>Nome</th>
@@ -25,13 +20,10 @@
             <td>@u.Email</td>
            
             <td><a asp-action="Cadastrar" asp-route-id="@u.IdUsuario"><button>Alterar</button></a></td>
-            <td><a asp-action="Excluir" style="background-color: rgb(218, 55, 55);" asp-route-id="@u.IdUsuario"><button>Excluir</button></a></td>
+            <td><a asp-action="Excluir" class="botaoVermeho" asp-route-id="@u.IdUsuario"><button>Excluir</button></a></td>
             
            
            </tbody>
             }
          </table>
 
-    
-</body>
-</html>
