@@ -1,9 +1,10 @@
 @{
-  Layout="_Layout";
+  ViewBag.Subtitulo="Home";
 }
 <div>
 
    <h1>CRUD Asp.net</h1>
-  <a  href="/Home/Usuarios" class="botao"><button>Usuarios</button></a>
+   <h2>Usuarios Cadastrados:@ViewBag.qtdUsers</h2>
+  <a  href="/Home/Usuarios" class="botao"><button>Listar Usuarios</button></a>
 </div>
     

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AspProject.Controllers{
     public class HomeController:Controller{
         public IActionResult Index(){
+            ViewBag.qtdUsers=Usuario.Listagem.Count();
             return View();
         }
         public IActionResult Usuarios(){
