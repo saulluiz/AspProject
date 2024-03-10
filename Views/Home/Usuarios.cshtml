@@ -1,28 +1,36 @@
 @model IQueryable<AspProject.Models.Usuario>
    @{
-  ViewBag.Subtitulo="Listagem";
+  ViewBag.Subtitulo="Listagem";//Vida util= 1 request
 }
 
 
-   <h1>Usuarios</h1>
-     <a  href="/Home/Cadastrar"><button> Novo usuario</button></a>
-         <a href="/Home/Index">  <Button class="botaoVermeho">Voltar</Button></a>
-         <table>
-           <thead>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Ações</th>
+   <div class="caixa">
+
+   <h1 class="self-center text-2xl font-semibold whitespace-nowrap ">Lista de Usuários</h1>
+         <table class="flex flex-col  w-[50%]  ">
+           <thead class=" flex space-between">
+            <th class="w-[70px]  ">Nome</th>
+            <th class="w-[120px]">Email</th>
+            <th class="w-[170px]">Ações</th>
            </thead>
             @foreach(var u in Model){
-           <tbody>
-             <td>@u.Nome</td>
-            <td>@u.Email</td>
+           <tbody class="flex  w-[100%]" >
+             <td class=" w-[70px] " >@u.Nome</td>
+            <td class=>@u.Email</td>
            
-            <td><a asp-action="Cadastrar" asp-route-id="@u.IdUsuario"><button>Alterar</button></a></td>
-            <td><a asp-action="Excluir" class="botaoVermeho" asp-route-id="@u.IdUsuario"><button>Excluir</button></a></td>
+            <td class=""><a asp-action="Cadastrar" class="botao w-[70px] h-[25px] " asp-route-id="@u.IdUsuario"><button>Alterar</button></a></td>
+            <td class=""><a asp-action="Excluir" class="botao vermelho w-[70px] h-[25px] " asp-route-id="@u.IdUsuario"><button>Excluir</button></a></td>
             
            
            </tbody>
+           
             }
          </table>
+         <div>
 
+         <a href="/Home/Index">  <Button class="botao vermelho ">Voltar</Button></a>
+          <a  href="/Home/Cadastrar"><button class="botao "> Novo usuario</button></a>
+         </div>
+
+
+   </div> 

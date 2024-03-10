@@ -4,24 +4,26 @@
 }
 
 
-    <div>
-        <h2>Novo Usuário</h2>
+    <div class="caixa ">
+        <h2 class="self-center text-2xl font-semibold whitespace-nowrap">Novo Usuário</h2>
         <hr>
-        <form method="POST">
-            <div>
-                <label asp-for="Nome">Nome:</label>
-                <input asp-for="Nome" >
+        <form  method="POST">
+            <div class="mt-[30px] ">
+                <label class="font-bold" asp-for="Nome" class="">Nome:</label>
+                <input class=" ml-[10px] w-[300px]"asp-for="Nome" >
             </div>
-            <div>
-                <label asp-for="Email">Email:</label>
-                <input asp-for="Email" >
+            <div class="mt-[10px]">
+                <label class="font-bold" asp-for="Email">Email:</label>
+                <input class=" ml-[15px] w-[300px]"asp-for="Email" >
             </div>
             <input type="hidden" asp-for=IdUsuario>
-            <div>
-                <button type="submit">Salvar</button>
-            </div>
+             <div class="flex justify-around mt-[30px]">
+
+                <button type="submit" class="botao">Salvar</button>
+            
+      <a class="botao vermelho" href="/Home/Usuarios">  <Button class=" ">Voltar</Button></a>
+             </div>
         </form>
-      <a href="/Home/Usuarios">  <Button style=" background-color: rgb(236, 22, 22); ;">Voltar</Button></a>
     </div>
 
     

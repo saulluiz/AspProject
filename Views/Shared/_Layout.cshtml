@@ -12,12 +12,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@ViewBag.Subtitulo</title>
     <style>
+       
+        .caixa{
+            flex-direction: column;
+    
+            display: flex;
+            margin: auto !important;
+           width: min-content;
+            min-width: 50%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 20px;
+            
+        }
         .botao {
-
-
+            border: 2px solid black;
+            margin: auto !important;
             appearance: none;
             background-color: transparent;
-            border: 1px solid #676767;
+            
             border-radius: 4px;
             box-sizing: border-box;
             color: #fefefe;
@@ -26,7 +38,7 @@
             font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             font-weight: 600;
             line-height: normal;
-            margin: 0;
+            
             background-color: rgb(81, 81, 247) !important;
           
           
@@ -36,7 +48,8 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
-            width: 30%;
+            width: 200px;
+           
             will-change: transform;
         }
 
@@ -59,6 +72,11 @@
             background-color: rgb(255, 86, 86) !important;
 
 
+        }
+        input{
+            border: 1px solid black;
+            border-radius: 3px;
+            
         }
     </style>
 </head>
@@ -93,7 +111,7 @@
             </div>
         </div>
     </nav>
-    <div>
+    <div >
         @RenderBody()
     </div>
 
