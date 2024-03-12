@@ -1,35 +1,63 @@
 @model IQueryable<AspProject.Models.Usuario>
    @{
   ViewBag.Subtitulo="Listagem";//Vida util= 1 request
+  static string maxLen(int tamanho,string vet){
+    if(vet.Length>=tamanho){
+      return vet.Substring(0,tamanho)+"...";
+    }
+    else{
+      return vet;
+    }
+    
+  }
 }
 
 
-   <div class="caixa">
+   <div class="caixa h-[400px] relative ">
 
    <h1 class="self-center text-2xl font-semibold whitespace-nowrap ">Lista de Usuários</h1>
-         <table class="flex flex-col  w-[50%]  ">
-           <thead class=" flex space-between">
-            <th class="w-[70px]  ">Nome</th>
+   @if(TempData.ContainsKey("Excluiu"))
+{
+  var excluiu=(bool)TempData["Excluiu"];
+  if(excluiu){
+
+@* <h5 class="font-bold text-blue-300 mx-auto">Usuário excluiudo com sucesso!</h5> *@
+  <partial name="_ParcialMessage" model="@("Alerta!//Usuario excluido com sucesso.//green")"></partial>
+  }
+  else{
+  <partial name="_ParcialMessage" model="@("Não foi possivel excluir o usuario//red")"></partial>
+  }
+} 
+        <table class="  w-[70%] absolute right-[15%] top-[25%]  ">
+           <thead class=" relative">
+            <th class="left-0  ">Nome</th>
             <th class="w-[120px]">Email</th>
             <th class="w-[170px]">Ações</th>
            </thead>
+           @{
+            int auxHeight=-1;
+           }
+
             @foreach(var u in Model){
-           <tbody class="flex  w-[100%]" >
-             <td class=" w-[70px] " >@u.Nome</td>
-            <td class=>@u.Email</td>
+              auxHeight++;
+           <tbody class="relative" >
+             <td class=" absolute left-0 top-[@(auxHeight*30)px] " >@maxLen(8,u.Nome)</td>
+            <td class="absolute left-[20%] top-[@(auxHeight*30)px]">@maxLen(15,u.Email)</td>
            
-            <td class=""><a asp-action="Cadastrar" class="botao w-[70px] h-[25px] " asp-route-id="@u.IdUsuario"><button>Alterar</button></a></td>
-            <td class=""><a asp-action="Excluir" class="botao vermelho w-[70px] h-[25px] " asp-route-id="@u.IdUsuario"><button>Excluir</button></a></td>
+
+            <td class="absolute right-0 top-[@(auxHeight*30)px]" ><a asp-action="Cadastrar" class="botao w-[70px] h-[25px] " asp-route-id="@u.IdUsuario"><button>Alterar</button></a></td>
+            <td class="absolute  right-[20%] top-[@(auxHeight*30)px]"><a asp-action="Excluir" class="botao vermelho w-[70px] h-[25px] " asp-route-id="@u.IdUsuario"><button>Excluir</button></a></td>
+          
             
            
            </tbody>
            
             }
          </table>
-         <div>
+         <div class="absolute bottom-[30px] right-[13%] ">
 
-         <a href="/Home/Index">  <Button class="botao vermelho ">Voltar</Button></a>
-          <a  href="/Home/Cadastrar"><button class="botao "> Novo usuario</button></a>
+         <a href="/Home/Index">  <Button class="botao vermelho my-0 ">Voltar</Button></a>
+          <a  href="/Home/Cadastrar"><button class="botao my-0"> Novo usuario</button></a>
          </div>
 
 

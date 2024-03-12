@@ -43,8 +43,10 @@ namespace AspProject.Controllers{
         [HttpPost]
         public IActionResult Excluir(Usuario usuario)
         {
-           Usuario.Excluir(usuario.IdUsuario);
-           return RedirectToAction("Usuarios");
+           TempData["Excluiu"]= Usuario.Excluir(usuario.IdUsuario);
+           
+         return RedirectToAction("Usuarios");
+         
         }
         
     }

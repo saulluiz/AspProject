@@ -37,8 +37,8 @@ namespace AspProject.Models
             }
             else{
                 int maiorId=Usuario.Listagem.Max(u=>u.IdUsuario);
-                usuario.IdUsuario=maiorId+1;
-                Usuario.listagem.Add(usuario);
+/*                 usuario.IdUsuario=maiorId+1;
+ */                Usuario.listagem.Add(usuario);
             }
         }
         public static bool Excluir(int idUsuario){
